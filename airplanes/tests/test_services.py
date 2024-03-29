@@ -4,8 +4,6 @@ from django.test import TestCase
 
 from ..services import flight_time, fuel_capacity, fuel_consumption_per_min
 
-# Logic tests
-
 
 class TestAirplaneCapacity(TestCase):
     def test_total_fuel_capacity(self):
