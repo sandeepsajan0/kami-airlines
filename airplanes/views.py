@@ -1,10 +1,10 @@
 from typing import List
 
 from drf_yasg.utils import swagger_auto_schema
-from rest_framework.views import APIView
 from rest_framework import status
 from rest_framework.request import Request
 from rest_framework.response import Response
+from rest_framework.views import APIView
 
 from .serializers import AirplaneSerializer
 from .services import flight_time, fuel_capacity, fuel_consumption_per_min
@@ -31,7 +31,7 @@ class AirplaneCapacityView(APIView):
                 response_data.append(
                     {
                         "id": data.get("id"),
-                        "consumption_per_min": f"{consumption_per_min} litre/minute",
+                        "fuel_consumption_per_min": f"{consumption_per_min} litre/minute",
                         "airplane_flight_time": f"{convert_decimal_to_min(airplane_flight_time)} minutes",
                     }
                 )
