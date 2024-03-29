@@ -13,8 +13,21 @@ from .utils import convert_decimal_to_min
 
 class AirplaneCapacityView(APIView):
 
-    @swagger_auto_schema(request_body=AirplaneSerializer(many=True))
+    @swagger_auto_schema(
+        request_body=AirplaneSerializer(many=True),
+        operation_description="Endpoint to calculate fuel consumption per minute and airplane flight time for multiple airplanes.",
+        responses={200: "Success"},
+    )
     def post(self, request: Request) -> Response:
+        """
+        POST method to calculate fuel consumption per minute and airplane flight time for multiple airplanes.
+
+        Params:
+            request (Request): The incoming request containing data for multiple airplanes.
+
+        Returns:
+            Response: JSON response containing fuel consumption per minute and airplane flight time for each airplane.
+        """
         serializer = AirplaneSerializer(data=request.data, many=True)
         if serializer.is_valid(raise_exception=True):
             airplanes_data: List[dict] = serializer.validated_data
@@ -36,4 +49,3 @@ class AirplaneCapacityView(APIView):
                     }
                 )
             return Response(response_data, status=status.HTTP_200_OK)
-
