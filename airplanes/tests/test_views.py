@@ -64,9 +64,9 @@ class TestAirplaneCapacityView(TestCase):
         self.assertEqual(len(response.data), 3)
 
         expected_data = [
-            {"id": 1, "consumption_per_min": "20 litre/minute", "airplane_flight_time": "120.0 minutes"},
-            {"id": 2, "consumption_per_min": "20 litre/minute", "airplane_flight_time": "120.0 minutes"},
-            {"id": 3, "consumption_per_min": "20 litre/minute", "airplane_flight_time": "120.0 minutes"}
+            {"id": 1, "fuel_consumption_per_min": "20 litre/minute", "airplane_flight_time": "120.0 minutes"},
+            {"id": 2, "fuel_consumption_per_min": "20 litre/minute", "airplane_flight_time": "120.0 minutes"},
+            {"id": 3, "fuel_consumption_per_min": "20 litre/minute", "airplane_flight_time": "120.0 minutes"}
         ]
         self.assertEqual(response.data, expected_data)
 
